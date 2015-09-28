@@ -13,13 +13,13 @@ Serial outPort;
 void setup(){
  gloswitch = true;
  subtext = new ArrayList<String>();
- indata = new File("C:\\Users\\Development 101\\Documents\\github\\ExtendedEssay\\Transmiter\\TransmitterProcessingCode\\tempData1");
- //JFileChooser chooser = new JFileChooser();
- //int returnValue = chooser.showOpenDialog(null);
- //if(returnValue == JFileChooser.APPROVE_OPTION){
- // System.out.println(chooser.getSelectedFile());
- // indata = chooser.getSelectedFile();
- //}
+ //indata = new File("C:\\Users\\Development 101\\Documents\\github\\ExtendedEssay\\Transmiter\\TransmitterProcessingCode\\tempData1");
+ JFileChooser chooser = new JFileChooser();
+ int returnValue = chooser.showOpenDialog(null);
+ if(returnValue == JFileChooser.APPROVE_OPTION){
+ System.out.println(chooser.getSelectedFile());
+ indata = chooser.getSelectedFile();
+ }
  outPort = new Serial(this, "COM6", 9600);
  outPort.bufferUntil('\n');
 }

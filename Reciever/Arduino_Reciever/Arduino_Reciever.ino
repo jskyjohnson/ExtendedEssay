@@ -15,11 +15,19 @@ Serial.println("Device is ready");
 vw_setup(2000); // Bits per sec
 vw_rx_start(); // Start the receiver
 }
+int serialcounter = 0;
 void loop()
 {
   if (vw_get_message(message, &messageLength)) // Non-blocking
   {
-  Serial.print("Received: ");
-  Serial.println(messageLength);
+    char inc = message[0];
+    if(serialcounter < 80){
+      Serial.print(inc);
+      serialcounter++;
+    }else{
+      Serial.print(inc);
+      Serial.println();
+      serialcounter = 0;
+    }
   }
 }    
