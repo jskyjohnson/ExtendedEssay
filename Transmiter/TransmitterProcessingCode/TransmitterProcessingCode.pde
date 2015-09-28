@@ -10,7 +10,6 @@ String [] subtext;
 File indata;
 Serial myPort;
 
-
 void setup(){
  //Create a switch that will control the frequency of text file reads.
  //When mySwitch=1, the program is setup to read the text file.
@@ -28,7 +27,7 @@ void setup(){
  
  //Open the serial port for communication with the Arduino
  //Make sure the COM port is correct
- myPort = new Serial(this, "/dev/ttyUSB0", 9600);
+ myPort = new Serial(this, "COM6", 9600);
  myPort.bufferUntil('\n');
 }
 
@@ -49,6 +48,7 @@ void draw() {
  There will be a delay of half a second before the command is
  sent to turn the LED off : myPort.write('0'); */
  myPort.write(subtext[counter]);
+ System.out.println(subtext[counter]);
  delay(500);
  myPort.write('0');
  delay(100);

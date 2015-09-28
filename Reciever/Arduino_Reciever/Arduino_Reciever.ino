@@ -17,13 +17,9 @@ vw_rx_start(); // Start the receiver
 }
 void loop()
 {
-if (vw_get_message(message, &messageLength)) // Non-blocking
-{
-Serial.print("Received: ");
-for (int i = 0; i < messageLength; i++)
-{
-Serial.write(message[i]);
-}
-Serial.println();
-}
-}   
+  if (vw_get_message(message, &messageLength)) // Non-blocking
+  {
+  Serial.print("Received: ");
+  Serial.println(messageLength);
+  }
+}    
