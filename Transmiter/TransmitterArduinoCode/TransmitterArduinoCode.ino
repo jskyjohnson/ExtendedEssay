@@ -6,6 +6,7 @@ void setup() {
  pinMode(6, OUTPUT);
  pinMode(7, OUTPUT);
  Serial.begin(9600);
+ Serial.println("This is the Transmitter");
  vw_setup(2000);
 }
 char charer[1];
